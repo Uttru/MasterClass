@@ -1,5 +1,5 @@
 def main(a:str) -> int:
-    open with
+    print(len(a))
 
 
 if __name__ == "__main__":
