@@ -3,5 +3,9 @@ def main(a:str) -> int:
 
 
 if __name__ == "__main__":
-    a = "arda"
+    a = []
+
+    k = ['hello','ju']
+    a = k[0]
     main(a)
+    print(f'afdafs {(a)}')

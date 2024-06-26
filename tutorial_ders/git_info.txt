@@ -1,0 +1,4 @@
+git status -> check status
+git add <_> -> adding
+git commit -m "commit notu"
+git push
