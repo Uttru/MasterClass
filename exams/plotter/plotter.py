@@ -2,33 +2,35 @@ EMPTY = '.'
 COLUMN = 5
 RAW = 5
 
+def runner(*a):
+    if a[4] == 'P':
+        a[3][RAW - 1 - a[1]][a[0]] = '*'
+    elif a[4] == 'H': 
+        for j in range(a[0], a[0] + a[2]):#sağ doğru gilidiği için xler artacak
+            if j< RAW:
+                a[3][RAW - 1 - a[1]][j] = '-'# sağ doğru - işareti koyulacak yani rowlar eşit kalıcak(burda y'ler bizim rowlarımız)x ler değişecek çünkü column o
+    elif a[4] == 'V':
+        for i in range(a[1], a[1] + a[2]):# yukrı gidiliyor y ler artacak ama y bizim row unutuma
+            if i < COLUMN:
+                if a[3][RAW - 1 - i][a[0]] != '-':
+                    a[3][RAW - 1 - i][a[0]] = '|'
+                else:
+                    a[3][RAW - 1 - i][a[0]] = '+'
+    # print(a)
+    # print(a[0], type(a[0]))
+
+
+
 def opener(board):
     with open("plotter/plotter.txt", 'r') as file:
         for plot in file:
             words = plot.split()
             instruction = words[0]
-            if instruction == 'P':
-                x = int(words[1])
-                y = int(words[2])
-                board[RAW - 1 - y][x] = '*'
-            elif instruction == 'H': 
-                x = int(words[1])
-                y = int(words[2])
-                length = int(words[3])
-                for j in range(x, x + length):#sağ doğru gilidiği için xler artacak
-                    if j< RAW:
-                        board[RAW - 1 - y][j] = '-'# sağ doğru - işareti koyulacak yani rowlar eşit kalıcak(burda y'ler bizim rowlarımız)x ler değişecek çünkü column o
-                x = int(words[1])
-            elif instruction == 'V':
-                x = int(words[1])
-                y = int(words[2])
-                length = int(words[3])
-                for i in range(y, y + length):# yukrı gidiliyor y ler artacak ama y bizim row unutuma
-                    if i < COLUMN:
-                        if board[RAW - 1 - i][x] != '-':
-                            board[RAW - 1 - i][x] = '|'
-                        else:
-                            board[RAW - 1 - i][x] = '+'
+            x = int(words[1])
+            y = int(words[2])
+            length = int(words[3]) if len(words) == 4 else 0
+            runner(x, y, length, board, instruction)
+
     return board
 
 def print_board(board):
