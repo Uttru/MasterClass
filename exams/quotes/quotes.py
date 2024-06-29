@@ -4,7 +4,8 @@ def main():
         for line in file:
             a=line.strip().split('\n')
             if a != ['']:  
-                non_empty_lines.append(a[0])
+                non_empty_lines.append(a)
+    print(non_empty_lines)
     topics=[]
     with open('quotes/topics.txt','r') as file:
         for line in file:
