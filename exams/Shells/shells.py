@@ -26,30 +26,14 @@ def main():
             cart_counts[item] += 1
         else:
             cart_counts[item] = 1
+    print(cart_counts)
     
     total_price = 0
-    free_items = []
-
-    for offer, free in pines_dict.items():
-        min_offer_count = float('inf')  
-        for product in offer:
-            product_count_in_cart = cart_counts.get(product, 0)
-            offer_count = offer.count(product)
-            
-            if offer_count > 0:
-                offer_times = product_count_in_cart // offer_count
-                if offer_times < min_offer_count:
-                    min_offer_count = offer_times
-        
-        if min_offer_count > 0:
-            free_items.extend([free] * min_offer_count)
-            for product in offer:
-                cart_counts[product] -= offer.count(product) * min_offer_count
-            
-            print(f"As you buy {' '.join(offer)}; you got {free} for free")
 
     for item, count in cart_counts.items():
-        total_price += dict_dict[item] * count
+        for m,l in dict_dict.items():
+            total_price += l * count
+    
 
     print(f"Final price: {total_price:.2f} EUR")
 
