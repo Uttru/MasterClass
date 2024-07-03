@@ -16,8 +16,8 @@ def main():
                 found_second = True
 
             if found_first and found_second:
-                index_word = -1
-                index_second_word = -1
+                index_word = None
+                index_second_word = None
                 for indx in range(len(words)):
                     if words[indx] == word:
                         index_word = indx
