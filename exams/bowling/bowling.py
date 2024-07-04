@@ -33,11 +33,11 @@ def main():
         max_10_count = max(most_10_dict.values())
         for names,most10 in most_10_dict.items():
             if most10== max_10_count:
-                print(f'Most 10:{names} ({max_10_count}times)')
+                print(f'Most 10:{names} ({max_10_count} times)')
         max_0_count = max(most_0_dict.values())
         for names,most0 in most_0_dict.items():
             if most0== max_0_count:
-                print(f'Most 0:{names} ({max_0_count}times)')
+                print(f'Most 0:{names} ({max_0_count} times)')
            
 
             

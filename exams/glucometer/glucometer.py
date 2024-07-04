@@ -18,5 +18,6 @@ def main():
         for i,j in sorted_dict.items():
             for k in sorted_dict[i]:
                 print(f'{i} {k[0]} {k[1]}')
+
 if __name__ == "__main__":
     main()

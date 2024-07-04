@@ -8,7 +8,7 @@ For example, given the file `strawberry-short.txt`:
 No one I think is in my tree
 I mean it must be high or low
 That is you cannot, you know, tune in, but it is all right
-That is I think it is not too bad...
+That is I think it is not too bad....
 
 Let me take you down, because I am going to
 Strawberry Fields
