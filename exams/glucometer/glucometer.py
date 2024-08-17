@@ -12,9 +12,7 @@ def main():
                     glucometerDict[elements[0]] =[[elements[1], int(elements[2])]]
                 else:
                     glucometerDict[elements[0]].append([elements[1], int(elements[2])])
-        items = glucometerDict.items()
-        sorted_items = sorted(items, key=value_length, reverse=1)
-        sorted_dict = dict(sorted_items)
+        sorted_dict = dict(sorted(glucometerDict.items(), key=lambda x:x[0]))
         for i,j in sorted_dict.items():
             for k in sorted_dict[i]:
                 print(f'{i} {k[0]} {k[1]}')

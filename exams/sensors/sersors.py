@@ -17,7 +17,7 @@ def main():
                 max_sensor = sensor
                 max_time = time
                 max_key= x_y
-    flag = 0
+    
     final_dict = {}
     for key, value in addict.items():
         coordinates = value[0]
@@ -25,13 +25,9 @@ def main():
         if coordinates not in final_dict:
             final_dict[coordinates] = (key, sensor_value)
         else:
-            flag = 1
-            if flag == 1:
-                existing_key, existing_value = final_dict[coordinates]
-                new_value = (sensor_value + existing_value) / 2
-                final_dict[coordinates] = (key, new_value)
-                flag = 0
-
+            existing_key, existing_value = final_dict[coordinates]
+            new_value = (sensor_value + existing_value) / 2
+            final_dict[coordinates] = (key, new_value)
     for key, value in final_dict.items():
         print(f"({key}): {value[1]}")
 

@@ -8,10 +8,13 @@ def main():
         all = ""
         for line in file:
             line = line.strip().replace('...', '').replace(',', '')
+            
             if not line:
                 continue
+            print(line)
             all+=' '+line
         all = all.split()
+        print(all)
         
             # for i in range(len(line)-2):
             #     if len(line[i])==len(line[i+1])==len(line[i+2]):

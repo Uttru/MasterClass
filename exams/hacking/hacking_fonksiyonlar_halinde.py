@@ -1,21 +1,21 @@
-#iki tane ayrı dict açılacak
-#keyler eşit ise birden fazla veya farklı value değerleri olanlar print edilecek
-def main():
+def products_reader(product_filename):
     hackingPro = dict()
-    with open('hacking/products.txt' , 'r') as file:
+    with open(product_filename , 'r') as file:
         for i in file:
             i=i.split()
             hackingPro[i[0]]=i[1]
-    
+    return hackingPro
+def transactions_reader(transactions_filename):
     hackingTra = dict()
-    with open ('hacking/transactions.txt','r') as file:
+    with open (transactions_filename,'r') as file:
         for i in file:
             i=i.split()
             if i[0] in hackingTra:
                 hackingTra[i[0]].append(i[1])
             else:
                 hackingTra[i[0]] = [i[1]]
-    print('Suspect transactions', end='\n\n')
+    return hackingTra
+def printer(hackingTra,hackingPro):
     for i,j in hackingPro.items():
         kall = list()
         kall.append(j)
@@ -30,6 +30,13 @@ def main():
             print(f'Product code: {i}')
             print(f'Official seller: {j}')
             print(f'Sellers list: {kall[1]}')
+def main():
+    product_filename ='hacking/products.txt'
+    transactions_filename ='hacking/transactions.txt'
     
+    hackingPro =products_reader(product_filename)
+    hackingTra =transactions_reader(transactions_filename)
+    print('Suspect transactions', end='\n\n')
+    printer(hackingTra,hackingPro)
 if __name__=='__main__':
     main()

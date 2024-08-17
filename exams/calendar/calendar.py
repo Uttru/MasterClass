@@ -39,6 +39,7 @@ def main():
                     commands_dict[command].append(day_command)
                 else:
                     commands_dict[command] = [day_command]
+                    
     for command, details in commands_dict.items():
         if command == 'v':
             for day in details:
